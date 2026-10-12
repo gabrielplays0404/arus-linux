@@ -56,6 +56,14 @@
 
 ---
 
+## 📥 Chroot Download (.tar.xz)
+
+If you prefer to start with a pre-configured development environment rather than setting it up from scratch, you can download the base rootfs chroot archive:
+
+* **[📥 Download Arus Linux RootFS (tar.xz)](https://drive.google.com/file/d/1JuRs5P_4m2hh2JY1Jw4dwqlAaCVPuzGq/view?usp=sharing)**
+
+---
+
 ## 🛠️ Building the ISO (Chroot)
 
 To configure or build Arus Linux locally inside a Debian environment:
@@ -131,6 +139,15 @@ Construído sobre a base sólida do **Debian Testing (Trixie)** e impulsionado p
 | **Memória RAM** | 2 GB | 4 GB ou mais |
 | **Armazenamento** | 20 GB de espaço livre | 40 GB SSD |
 | **Mídia de Boot** | Pendrive USB de 4 GB+ | Pendrive USB de 8 GB+ (USB 3.0) |
+
+---
+
+
+## 📥 Download do Chroot (.tar.xz)
+
+Se preferir utilizar um ambiente base já pré-configurado em vez de o criar do zero, pode descarregar o pacote rootfs compactado:
+
+* **[📥 Baixar Arus Linux RootFS (tar.xz)](https://drive.google.com/file/d/1JuRs5P_4m2hh2JY1Jw4dwqlAaCVPuzGq/view?usp=sharing)**
 
 ---
 
