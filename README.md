@@ -1,53 +1,47 @@
-<!-- Seletor de Idioma no Topo -->
+<!-- Seletor de Idioma / Language Selector -->
 <p align="center">
-  <a href="#english">🇺🇸 English</a> | <a href="#portugues">🇧🇷 Português</a>
+  🌐 <b>Idiomas / Languages:</b> 
+  <a href="#english">🇺🇸 English</a> | 
+  <a href="#portugues">🇧🇷 Português</a>
 </p>
 
 ---
 
-<!-- ==================== VERSÃO EM INGLÊS ==================== -->
 <div id="english"></div>
 
 # 🐧 Arus Linux
 
 <p align="center">
-<img src="https://raw.githubusercontent.com/seu-usuario/arus-linux/main/assets/logo.png" alt="Arus Linux Logo" width="180"/>
+  <b>A modern, stable, and elegant Linux distribution built on Debian Testing and KDE Plasma.</b>
 </p>
 
 <p align="center">
-<b>A modern, elegant, and stable Linux distribution based on Debian Testing and KDE Plasma.</b>
-</p>
-
-<p align="center">
-<a href="#-about-the-project">About</a> •
-<a href="#-key-features">Features</a> •
-<a href="#-downloads">Downloads</a> •
-<a href="#%EF%B8%8F-iso-build-chroot">ISO Build</a> •
-<a href="#-contribution">Contribution</a> •
-<a href="#-license">License</a>
+  <a href="#-about-the-project">About</a> •
+  <a href="#-features">Features</a> •
+  <a href="#-system-requirements">Requirements</a> •
+  <a href="#-building-the-iso-chroot">Building</a> •
+  <a href="#-license">License</a>
 </p>
 
 ---
 
 ## 📌 About the Project
 
-**Arus Linux** is a distribution developed with the goal of delivering a smooth, user-friendly, *out-of-the-box* experience—both in the **Live USB** environment and after installation on the hard drive.
-
-Built upon the solid foundation of **Debian Testing (Trixie)** and powered by the **KDE Plasma** desktop environment, the system combines frequent package updates with stability, native hardware integration, and productivity tools.
+**Arus Linux** is a custom distribution designed to deliver a smooth, out-of-the-box experience optimized for both **Live USB sessions** and permanent hard drive installations. Built on top of robust **Debian Testing (Trixie)** packages and powered by **KDE Plasma**, it combines cutting-edge software with rock-solid stability and modern hardware integration.
 
 ---
 
-## ✨ Key Features
+## ✨ Features
 
-* **Up-to-date Base:** Debian Testing + customized KDE Plasma.
-* **No Snapd by Default:** Focus on native `APT` packages (with blocking via *pinning*) and a `Flatpak` ecosystem integrated via KDE Discover.
-* **High-Performance Virtualization:** Native integration of **KVM / QEMU / Virt-Manager** with pre-configured user permissions. * **Streamlined Hardware Support:**
-* Integrated Intel Wi-Fi firmware and drivers. 
-* Native graphical utility (**Arus NVIDIA Installer**) for proprietary driver detection and compilation.
-* **Customized Visual Experience:**
-* Custom boot/shutdown theme using **Plymouth**. 
-* Dynamic prompt to remove installation media during the Live session.
-* **Hassle-free Installation:** Calamares configured to preserve system groups (`libvirt`, `kvm`, `sudo`).
+* **Modern Base:** Debian Testing + customized KDE Plasma desktop.
+* **No Snap Bloatware:** Strictly relies on native `APT` packages (with repository pinning) and `Flatpak` integration via KDE Discover.
+* **Out-of-the-Box Virtualization:** Native **KVM / QEMU / Virt-Manager** setup with automatic user permission handling (`libvirt`, `kvm` groups applied natively via Calamares).
+* **Enhanced Hardware Support:**
+  * Integrated Intel Wi-Fi and common network firmware packages.
+  * **Arus NVIDIA Installer:** A custom graphical utility (`kdialog`-based) to seamlessly detect, build, and configure NVIDIA proprietary/open drivers.
+* **Custom Plymouth Experience:**
+  * Custom animated boot theme (`arus`).
+  * Dynamic shutdown/reboot message prompting users to remove the installation USB during Live sessions.
 
 ---
 
@@ -55,32 +49,43 @@ Built upon the solid foundation of **Debian Testing (Trixie)** and powered by th
 
 | Component | Minimum | Recommended |
 | :--- | :--- | :--- |
-| **Processor** | 64-bit Dual Core | 64-bit Quad Core or higher |
-| **RAM** | 2 GB | 4 GB or more |
+| **Processor** | 64-bit Dual Core | 64-bit Quad Core or better |
+| **Memory (RAM)** | 2 GB | 4 GB or higher |
 | **Storage** | 20 GB free space | 40 GB SSD |
-| **Boot Media** | 4 GB+ USB drive | 8 GB+ USB drive (USB 3.0) |
+| **Boot Media** | 4 GB+ USB Drive | 8 GB+ USB 3.0 Drive |
 
 ---
 
-## 🛠️ ISO Build (Chroot)
+## 🛠️ Building the ISO (Chroot)
 
-If you wish to build the Arus Linux ISO locally on your Debian/Ubuntu system:
+To configure or build Arus Linux locally inside a Debian environment:
 
-### 1. Clone the Repository
+### 1. Mount Virtual Directories
 ```bash
-git clone https://github.com/gabrielplays0404/arus-linux.git
-cd arus-linux
+sudo mount --bind /dev /opt/debian-root/dev
+sudo mount --bind /dev/pts /opt/debian-root/dev/pts
+sudo mount --bind /proc /opt/debian-root/proc
+sudo mount --bind /sys /opt/debian-root/sys
+```
+
+### 2. Enter Chroot Environment
+```bash
+sudo chroot /opt/debian-root
+apt update && apt upgrade -y
+```
 
 ---
 
-<!-- ==================== VERSÃO EM PORTUGUÊS ==================== -->
+## 📄 License
+
+Distributed under the **GPL-3.0 License**. See [LICENSE](LICENSE) for more information.
+
+---
+---
+
 <div id="portugues"></div>
 
 # 🐧 Arus Linux
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/seu-usuario/arus-linux/main/assets/logo.png" alt="Arus Linux Logo" width="180"/>
-</p>
 
 <p align="center">
   <b>Uma distribuição Linux moderna, elegante e estável baseada em Debian Testing e KDE Plasma.</b>
@@ -89,9 +94,8 @@ cd arus-linux
 <p align="center">
   <a href="#-sobre-o-projeto">Sobre</a> •
   <a href="#-recursos-em-destaque">Recursos</a> •
-  <a href="#-downloads">Downloads</a> •
-  <a href="#%EF%B8%8F-construcao-da-iso-chroot">Construção da ISO</a> •
-  <a href="#-contribuicao">Contribuição</a> •
+  <a href="#-requisitos-do-sistema">Requisitos</a> •
+  <a href="#-construcao-da-iso-chroot">Construção</a> •
   <a href="#-licenca">Licença</a>
 </p>
 
@@ -99,24 +103,23 @@ cd arus-linux
 
 ## 📌 Sobre o Projeto
 
-O **Arus Linux** é uma distribuição desenvolvida com o objetivo de entregar uma experiência *out-of-the-box* fluida e focada em facilidade de uso, tanto no ambiente **Live USB** quanto após a instalação no disco rígido. 
+O **Arus Linux** é uma distribuição desenvolvida com o objetivo de entregar uma experiência *out-of-the-box* fluida e focada em facilidade de uso, tanto na sessão **Live USB** quanto após a instalação no disco rígido. 
 
-Construído sobre a base sólida do **Debian Testing (Trixie)** e impulsionado pelo ambiente gráfico **KDE Plasma**, o sistema combina atualizações frequentes de pacotes com estabilidade, integração nativa de hardware e ferramentas de produtividade.
+Construído sobre a base sólida do **Debian Testing (Trixie)** e impulsionado pelo ambiente gráfico **KDE Plasma**, o sistema combina atualizações frequentes com estabilidade e integração nativa de hardware.
 
 ---
 
 ## ✨ Recursos em Destaque
 
 * **Base Atualizada:** Debian Testing + KDE Plasma customizado.
-* **Sem Snapd por Defeito:** Foco em pacotes nativos `APT` (com bloqueio via *pinning*) e ecossistema `Flatpak` integrado via KDE Discover.
-* **Virtualização de Alta Performance:** Integração nativa de **KVM / QEMU / Virt-Manager** com permissões de utilizador pré-configuradas.
+* **Sem Snap por Defeito:** Foco em pacotes nativos `APT` (com bloqueio via *pinning*) e ecossistema `Flatpak` integrado através do KDE Discover.
+* **Virtualização de Alta Performance:** Integração nativa de **KVM / QEMU / Virt-Manager** com permissões automáticas geridas pelo instalador Calamares (`libvirt` e `kvm`).
 * **Suporte Simplificado a Hardware:**
-  * Firmwares e drivers Wi-Fi Intel integrados.
-  * Utilitário gráfico nativo (**Arus NVIDIA Installer**) para deteção e compilação de drivers proprietários.
-* **Experiência Visual Personalizada:**
+  * Firmwares e drivers Wi-Fi Intel integrados de fábrica.
+  * **Arus NVIDIA Installer:** Utilitário gráfico nativo (via `kdialog`) para detetar, compilar e instalar drivers NVIDIA com apenas um clique.
+* **Experiência Visual Customizada:**
   * Tema de boot/shutdown personalizado com **Plymouth**.
-  * Mensagem dinâmica de orientação para remoção da mídia de instalação durante a sessão Live.
-* **Instalação Descomplicada:** Calamares configurado para manter integrados os grupos do sistema (`libvirt`, `kvm`, `sudo`).
+  * Mensagem dinâmica no encerramento da sessão Live orientando a remoção do pendrive.
 
 ---
 
@@ -133,9 +136,29 @@ Construído sobre a base sólida do **Debian Testing (Trixie)** e impulsionado p
 
 ## 🛠️ Construção da ISO (Chroot)
 
-Se deseja compilar a ISO do Arus Linux localmente no seu sistema Debian/Ubuntu:
+Para preparar ou compilar o ambiente do Arus Linux localmente:
 
-### 1. Clonar o Repositório
+### 1. Montar Diretórios Virtuais
 ```bash
-git clone https://github.com/gabrielplays0404/arus-linux.git
-cd arus-linux
+sudo mount --bind /dev /opt/debian-root/dev
+sudo mount --bind /dev/pts /opt/debian-root/dev/pts
+sudo mount --bind /proc /opt/debian-root/proc
+sudo mount --bind /sys /opt/debian-root/sys
+```
+
+### 2. Entrar no Ambiente Chroot
+```bash
+sudo chroot /opt/debian-root
+apt update && apt upgrade -y
+```
+
+---
+
+## 📄 Licença
+
+Este projeto é distribuído sob a licença **GPL-3.0**. Consulte o ficheiro [LICENSE](LICENSE) para mais detalhes.
+
+---
+<p align="center">
+  Desenvolvido com ❤️ pela comunidade <b>Arus Linux</b>.
+</p>
